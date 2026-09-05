@@ -1,0 +1,1193 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graduación Facultad de Psicología · Generación 2022-2027 | UADY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-dark: #112250;
+      --blue-medium: #3B507D;
+      --taupe: #BEB7A7;
+      --cream: #E7E2CE;
+      --off-white: #F5F4F0;
+      --white: #FFFFFF;
+      --shadow: 0 10px 40px rgba(17, 34, 80, 0.08);
+      --shadow-hover: 0 16px 48px rgba(17, 34, 80, 0.14);
+      --radius: 16px;
+      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      color: var(--navy-dark);
+      background: var(--off-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .subtitle-script {
+      font-family: 'Italianno', cursive;
+      font-weight: 400;
+    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+
+    /* HEADER */
+    .header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: rgba(245, 244, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(190, 183, 167, 0.35);
+      transition: var(--transition);
+    }
+    .header.scrolled { box-shadow: 0 4px 24px rgba(17, 34, 80, 0.06); }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0.9rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-mark {
+      width: 42px; height: 42px; background: var(--navy-dark); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cream); font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600;
+      color: var(--navy-dark); letter-spacing: -0.02em;
+    }
+    .logo-text span {
+      display: block; font-family: 'Montserrat', sans-serif; font-size: 0.68rem;
+      font-weight: 500; color: var(--blue-medium); letter-spacing: 0.04em; margin-top: 1px;
+    }
+    .nav { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; color: var(--blue-medium); position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--navy-dark); transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--navy-dark); }
+    .nav-links a:hover::after { width: 100%; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 50px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600;
+      border: none; cursor: pointer; transition: var(--transition);
+    }
+    .btn-primary { background: var(--navy-dark); color: var(--cream); }
+    .btn-primary:hover {
+      background: var(--blue-medium); transform: translateY(-2px); box-shadow: var(--shadow-hover);
+    }
+    .btn-outline {
+      background: transparent; color: var(--navy-dark); border: 2px solid var(--navy-dark);
+    }
+    .btn-outline:hover { background: var(--navy-dark); color: var(--cream); }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-whatsapp:hover {
+      background: #1da851; transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.3);
+    }
+    .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 6px; background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; background: var(--navy-dark);
+      border-radius: 2px; transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 7rem 1.5rem 5rem; position: relative; overflow: hidden;
+      background: linear-gradient(165deg, var(--off-white) 0%, var(--cream) 45%, #ebe6d8 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 55%; height: 80%;
+      background: radial-gradient(ellipse, rgba(190, 183, 167, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -15%; left: -5%; width: 40%; height: 50%;
+      background: radial-gradient(ellipse, rgba(59, 80, 125, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(17, 34, 80, 0.06); color: var(--blue-medium);
+      font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1rem;
+      border-radius: 50px; margin-bottom: 1.25rem; letter-spacing: 0.03em;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.5vw, 3.15rem); color: var(--navy-dark);
+      margin-bottom: 0.75rem; letter-spacing: -0.02em;
+    }
+    .hero .subtitle-script {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem); color: var(--blue-medium);
+      margin-bottom: 1.5rem; line-height: 1.2;
+    }
+    .hero-desc {
+      font-size: 1.05rem; color: var(--blue-medium); max-width: 540px;
+      margin-bottom: 2.25rem; font-weight: 400;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 1.75rem; font-size: 0.9rem; color: var(--blue-medium);
+    }
+    .hero-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+    .hero-meta-item strong { color: var(--navy-dark); font-weight: 600; }
+    .hero-card {
+      background: var(--white); border-radius: 24px; padding: 2rem;
+      box-shadow: var(--shadow); border: 1px solid rgba(190, 183, 167, 0.4); position: relative;
+    }
+    .hero-card-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--taupe); margin-bottom: 0.75rem;
+    }
+    .hero-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--navy-dark); }
+    .hero-card p { font-size: 0.95rem; color: var(--blue-medium); margin-bottom: 1.25rem; }
+    .hero-card-price {
+      font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600;
+      color: var(--navy-dark); margin-bottom: 0.25rem;
+    }
+    .hero-card-price span {
+      font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--blue-medium);
+    }
+    .hero-card-note { font-size: 0.8rem; color: var(--taupe); margin-bottom: 1.5rem; }
+
+    /* SECTIONS */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 3.25rem; }
+    .section-header .eyebrow {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--taupe); margin-bottom: 0.75rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.85rem, 3.8vw, 2.5rem); color: var(--navy-dark); margin-bottom: 1rem;
+    }
+    .section-header p { font-size: 1.05rem; color: var(--blue-medium); }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; align-items: start;
+    }
+    .about-visual { position: relative; }
+    .about-placeholder {
+      aspect-ratio: 4/5; background: linear-gradient(160deg, var(--navy-dark) 0%, var(--blue-medium) 100%);
+      border-radius: 24px; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; color: var(--cream); text-align: center; padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .about-placeholder svg { width: 64px; height: 64px; margin-bottom: 1rem; opacity: 0.7; }
+    .about-placeholder span { font-size: 0.9rem; font-weight: 500; opacity: 0.85; }
+    .about-badge {
+      position: absolute; bottom: -1.25rem; right: -1rem; background: var(--cream);
+      color: var(--navy-dark); padding: 1rem 1.35rem; border-radius: 16px;
+      box-shadow: var(--shadow); font-size: 0.85rem; font-weight: 600; max-width: 190px;
+    }
+    .about-badge strong {
+      display: block; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.15rem;
+    }
+    .about-content h2 { font-size: clamp(1.7rem, 3.2vw, 2.25rem); margin-bottom: 0.5rem; }
+    .about-content .subtitle-script {
+      font-size: 1.7rem; color: var(--blue-medium); margin-bottom: 1.35rem;
+    }
+    .about-content p { color: var(--blue-medium); margin-bottom: 1.15rem; font-size: 1rem; }
+    .values-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 1.5rem;
+    }
+    .value-card {
+      background: var(--off-white); border-radius: 12px; padding: 1rem 1.1rem;
+      border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .value-card strong {
+      display: block; font-size: 0.92rem; color: var(--navy-dark); margin-bottom: 0.25rem;
+    }
+    .value-card span { font-size: 0.82rem; color: var(--blue-medium); line-height: 1.5; }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--off-white); }
+    .timeline {
+      position: relative; max-width: 780px; margin: 0 auto; padding-left: 2rem;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+      background: linear-gradient(to bottom, var(--navy-dark), var(--taupe));
+    }
+    .timeline-item {
+      position: relative; padding-bottom: 2rem; padding-left: 1.75rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2rem; top: 6px; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--navy-dark); border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--navy-dark);
+    }
+    .timeline-item h4 {
+      font-size: 1.05rem; color: var(--navy-dark); margin-bottom: 0.35rem;
+    }
+    .timeline-item p { font-size: 0.92rem; color: var(--blue-medium); }
+
+    /* SERVICES / INFO CARDS */
+    .info-section { background: var(--white); }
+    .info-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    .info-card {
+      background: var(--off-white); border-radius: var(--radius); padding: 1.75rem;
+      border: 1px solid rgba(190, 183, 167, 0.35); transition: var(--transition); height: 100%;
+    }
+    .info-card:hover {
+      transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent;
+    }
+    .info-icon {
+      width: 48px; height: 48px; background: rgba(17, 34, 80, 0.07); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;
+      color: var(--navy-dark);
+    }
+    .info-icon svg { width: 24px; height: 24px; }
+    .info-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--navy-dark); }
+    .info-card p { font-size: 0.94rem; color: var(--blue-medium); line-height: 1.65; margin-bottom: 0.75rem; }
+    .info-card ul { margin-top: 0.5rem; }
+    .info-card li {
+      font-size: 0.9rem; color: var(--blue-medium); padding-left: 1.1rem; position: relative;
+      margin-bottom: 0.35rem;
+    }
+    .info-card li::before {
+      content: '·'; position: absolute; left: 0; color: var(--navy-dark); font-weight: 700;
+    }
+
+    /* BANQUETERA */
+    .banquetera { background: var(--cream); }
+    .banq-compare {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;
+    }
+    .banq-card {
+      background: var(--white); border-radius: var(--radius); padding: 1.75rem;
+      border: 1px solid rgba(190, 183, 167, 0.4);
+    }
+    .banq-card.recommended {
+      border: 2px solid var(--navy-dark); position: relative;
+    }
+    .banq-card.recommended::after {
+      content: 'Recomendada por el Comité'; position: absolute; top: -12px; left: 50%;
+      transform: translateX(-50%); background: var(--navy-dark); color: var(--cream);
+      font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.9rem; border-radius: 50px;
+      white-space: nowrap; letter-spacing: 0.03em;
+    }
+    .banq-card h3 { font-size: 1.25rem; margin-bottom: 0.35rem; }
+    .banq-price {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy-dark);
+      margin-bottom: 1rem;
+    }
+    .banq-card h4 {
+      font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--taupe);
+      margin: 1rem 0 0.5rem;
+    }
+    .banq-card ul li {
+      font-size: 0.9rem; color: var(--blue-medium); padding-left: 1.1rem;
+      position: relative; margin-bottom: 0.3rem;
+    }
+    .banq-card ul li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--navy-dark); font-size: 0.8rem;
+    }
+    .banq-note {
+      background: var(--white); border-radius: var(--radius); padding: 1.5rem 1.75rem;
+      border-left: 4px solid var(--navy-dark); font-size: 0.95rem; color: var(--blue-medium);
+    }
+    .banq-note strong { color: var(--navy-dark); }
+
+    /* COSTOS */
+    .costos { background: var(--white); }
+    .cost-table {
+      width: 100%; border-collapse: collapse; background: var(--off-white);
+      border-radius: var(--radius); overflow: hidden; margin-bottom: 1.75rem;
+    }
+    .cost-table th, .cost-table td {
+      padding: 1rem 1.25rem; text-align: left; font-size: 0.92rem;
+      border-bottom: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .cost-table th {
+      background: var(--navy-dark); color: var(--cream); font-weight: 600;
+      font-family: 'Montserrat', sans-serif; font-size: 0.82rem;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .cost-table td { color: var(--blue-medium); }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table .total-row td {
+      font-weight: 600; color: var(--navy-dark); background: rgba(17, 34, 80, 0.04);
+    }
+    .cost-explain {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .cost-box {
+      background: var(--off-white); border-radius: 12px; padding: 1.35rem;
+      border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .cost-box h4 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--navy-dark); }
+    .cost-box p { font-size: 0.9rem; color: var(--blue-medium); }
+
+    /* RESERVAS */
+    .reservas { background: var(--off-white); }
+    .reservas-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: start;
+    }
+    .reservas-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+    .step {
+      display: flex; gap: 1.15rem; background: var(--white); border-radius: 14px;
+      padding: 1.35rem; border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--navy-dark);
+      color: var(--cream); display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .step h4 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .step p { font-size: 0.9rem; color: var(--blue-medium); }
+    .step a { color: var(--navy-dark); font-weight: 600; text-decoration: underline; }
+    .reservas-side {
+      background: var(--navy-dark); color: var(--cream); border-radius: 20px;
+      padding: 2rem; position: sticky; top: 100px;
+    }
+    .reservas-side h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--cream); }
+    .reservas-side p { font-size: 0.92rem; color: rgba(231, 226, 206, 0.8); margin-bottom: 1.25rem; }
+    .reservas-side .btn { width: 100%; margin-bottom: 0.75rem; }
+    .reservas-side .note {
+      font-size: 0.82rem; color: rgba(231, 226, 206, 0.6); margin-top: 1rem;
+    }
+
+    /* COMITÉ DETALLE */
+    .comite-detalle { background: var(--white); }
+    .roles-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    }
+    .role-card {
+      background: var(--off-white); border-radius: 14px; padding: 1.35rem;
+      border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .role-card h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--navy-dark); }
+    .role-card .role-names {
+      font-size: 0.85rem; font-weight: 600; color: var(--blue-medium); margin-bottom: 0.5rem;
+    }
+    .role-card p { font-size: 0.88rem; color: var(--blue-medium); }
+
+    /* FAQ */
+    .faq { background: var(--cream); }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white); border-radius: 12px; margin-bottom: 0.85rem;
+      border: 1px solid rgba(190, 183, 167, 0.35); overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left; padding: 1.15rem 1.35rem; background: none;
+      border: none; cursor: pointer; font-family: 'Montserrat', sans-serif;
+      font-size: 0.98rem; font-weight: 600; color: var(--navy-dark);
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .faq-q span { font-size: 1.3rem; color: var(--blue-medium); transition: transform 0.3s; }
+    .faq-item.open .faq-q span { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-a { max-height: 500px; }
+    .faq-a-inner {
+      padding: 0 1.35rem 1.25rem; font-size: 0.94rem; color: var(--blue-medium); line-height: 1.7;
+    }
+
+    /* CONTACTO */
+    .contact { background: var(--off-white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .contact-info h2 { font-size: clamp(1.7rem, 3.2vw, 2.2rem); margin-bottom: 0.5rem; }
+    .contact-info .subtitle-script {
+      font-size: 1.65rem; color: var(--blue-medium); margin-bottom: 1.15rem;
+    }
+    .contact-info > p { color: var(--blue-medium); margin-bottom: 1.75rem; font-size: 1rem; }
+    .contact-channels { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
+    .channel {
+      display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem;
+      background: var(--white); border-radius: 12px;
+      border: 1px solid rgba(190, 183, 167, 0.35); transition: var(--transition);
+    }
+    .channel:hover { border-color: var(--blue-medium); box-shadow: var(--shadow); }
+    .channel-icon {
+      width: 42px; height: 42px; border-radius: 10px; background: rgba(17, 34, 80, 0.06);
+      display: flex; align-items: center; justify-content: center; color: var(--navy-dark); flex-shrink: 0;
+    }
+    .channel-icon svg { width: 20px; height: 20px; }
+    .channel strong { display: block; font-size: 0.9rem; color: var(--navy-dark); }
+    .channel span { font-size: 0.84rem; color: var(--blue-medium); }
+    .form-card {
+      background: var(--white); border-radius: 20px; padding: 2.1rem;
+      box-shadow: var(--shadow); border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .form-card h3 { font-size: 1.3rem; margin-bottom: 0.35rem; }
+    .form-card > p { font-size: 0.9rem; color: var(--blue-medium); margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.15rem; }
+    .form-group label {
+      display: block; font-size: 0.85rem; font-weight: 500; color: var(--navy-dark); margin-bottom: 0.35rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 0.8rem 1rem; border: 1.5px solid rgba(190, 183, 167, 0.5);
+      border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem;
+      color: var(--navy-dark); background: var(--off-white); transition: var(--transition); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--blue-medium); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(59, 80, 125, 0.12);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-success { display: none; text-align: center; padding: 2rem 1rem; }
+    .form-success.show { display: block; }
+    .form-success svg { width: 52px; height: 52px; color: #25D366; margin-bottom: 1rem; }
+    .form-success h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .form-success p { color: var(--blue-medium); font-size: 0.95rem; }
+
+    /* FOOTER */
+    .footer {
+      background: var(--navy-dark); color: var(--cream); padding: 3.75rem 1.5rem 2rem;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.75rem;
+      margin-bottom: 2.75rem; padding-bottom: 2.75rem;
+      border-bottom: 1px solid rgba(190, 183, 167, 0.2);
+    }
+    .footer-brand .logo-mark {
+      background: var(--cream); color: var(--navy-dark); margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem; color: rgba(231, 226, 206, 0.7); max-width: 280px;
+      margin-top: 0.7rem; line-height: 1.65;
+    }
+    .footer-col h4 { font-size: 1rem; margin-bottom: 1.15rem; color: var(--cream); }
+    .footer-col ul li { margin-bottom: 0.55rem; }
+    .footer-col a { font-size: 0.9rem; color: rgba(231, 226, 206, 0.7); }
+    .footer-col a:hover { color: var(--cream); }
+    .social-links { display: flex; gap: 0.7rem; margin-top: 1.15rem; }
+    .social-links a {
+      width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center; color: var(--cream);
+      transition: var(--transition);
+    }
+    .social-links a:hover { background: var(--cream); color: var(--navy-dark); }
+    .social-links svg { width: 17px; height: 17px; }
+    .footer-bottom {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 1rem; font-size: 0.84rem; color: rgba(231, 226, 206, 0.55);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-card { max-width: 420px; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-visual { max-width: 340px; margin: 0 auto; }
+      .about-badge { right: 0; }
+      .info-grid { grid-template-columns: 1fr; }
+      .banq-compare { grid-template-columns: 1fr; }
+      .cost-explain { grid-template-columns: 1fr; }
+      .reservas-grid { grid-template-columns: 1fr; }
+      .reservas-side { position: static; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .header .btn { padding: 0.55rem 1rem; font-size: 0.8rem; }
+      .mobile-menu {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: var(--off-white); z-index: 999; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 1.6rem;
+        opacity: 0; visibility: hidden; transition: var(--transition);
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mobile-menu a {
+        font-family: 'Playfair Display', serif; font-size: 1.5rem;
+        color: var(--navy-dark); font-weight: 500;
+      }
+      .mobile-menu .btn { margin-top: 0.75rem; }
+      section { padding: 3.75rem 1.25rem; }
+      .cost-table th, .cost-table td { padding: 0.85rem 0.9rem; font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 6rem 1.1rem 3.25rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .hero-meta { flex-direction: column; gap: 0.7rem; }
+      .form-card { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">Ψ</div>
+        <div class="logo-text">
+          GradPsico 27
+          <span>UADY · Psicología</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="#comite">El Comité</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#banquetera">Banquetera</a>
+          <a href="#costos">Costos</a>
+          <a href="#reservas">Reservas</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20información%20sobre%20la%20graduación%20Psicología%202027" class="btn btn-primary" target="_blank" rel="noopener">
+          Reservar por WhatsApp
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#comite" class="mobile-link">El Comité</a>
+    <a href="#proceso" class="mobile-link">Proceso</a>
+    <a href="#banquetera" class="mobile-link">Banquetera</a>
+    <a href="#costos" class="mobile-link">Costos</a>
+    <a href="#reservas" class="mobile-link">Reservas</a>
+    <a href="#faq" class="mobile-link">Preguntas</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+    <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20información%20sobre%20la%20graduación%20Psicología%202027" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+      Reservar por WhatsApp
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          Universidad Autónoma de Yucatán
+        </div>
+        <h1>Graduación Facultad de Psicología, Generación 2022-2027</h1>
+        <p class="subtitle-script">Un espacio oficial para informarte y reservar</p>
+        <p class="hero-desc">
+          Somos el Comité de Graduación, integrado de forma voluntaria por 12 compañeros de la generación. Organizamos con transparencia, equidad y cercanía la celebración del 17 de julio de 2027 en el Centro de Convenciones Siglo XXI.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20información%20sobre%20la%20graduación%20Psicología%202027" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribir a Carly
+          </a>
+          <a href="#reservas" class="btn btn-outline btn-lg">Cómo reservar</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span><strong>17 jul 2027</strong> · 21:00 h</span>
+          </div>
+          <div class="hero-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Centro de Convenciones Siglo XXI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">Precio por boleto</div>
+        <h3>Reserva tu lugar</h3>
+        <p>Banquete a tres tiempos, barra libre para graduados, after party, entretenimiento, cabina fotográfica y más.</p>
+        <div class="hero-card-price">$950 <span>MXN</span></div>
+        <p class="hero-card-note">Puedes pagar de forma flexible. Reserva abierta hasta julio 2027. Sin penalización por montos menores.</p>
+        <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20reservar%20boletos%20para%20la%20graduación" class="btn btn-whatsapp" style="width:100%" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE EL COMITÉ -->
+  <section class="about" id="comite">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span>[Foto del Comité aquí]</span>
+          </div>
+          <div class="about-badge">
+            <strong>12</strong>
+            integrantes voluntarios de la generación
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="eyebrow" style="font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--taupe);margin-bottom:0.5rem">Quiénes somos</p>
+          <h2>Comité de Graduación de la generación</h2>
+          <p class="subtitle-script">Trabajamos por y para todos</p>
+          <p>
+            Nos conformamos de manera voluntaria a través del grupo de la generación. Nuestra misión es planificar, organizar y ejecutar un evento memorable, inclusivo, transparente y honesto, asegurando que cada decisión busque el beneficio colectivo.
+          </p>
+          <p>
+            Nos comprometemos a un trato justo y equitativo que valore tanto el esfuerzo de quienes coordinan como la inversión y la ilusión de quienes asisten. Aspiramos a ser un modelo de organización estudiantil reconocido por su integridad, empatía y eficiencia.
+          </p>
+          <div class="values-grid">
+            <div class="value-card">
+              <strong>Equidad</strong>
+              <span>Las mismas reglas y beneficios para comité, amigos y resto de la generación.</span>
+            </div>
+            <div class="value-card">
+              <strong>Transparencia</strong>
+              <span>Cuentas abiertas, presupuestos auditable y cortes de caja mensuales.</span>
+            </div>
+            <div class="value-card">
+              <strong>Empatía</strong>
+              <span>Entendemos limitaciones de pago y también las cargas del comité.</span>
+            </div>
+            <div class="value-card">
+              <strong>Corresponsabilidad</strong>
+              <span>El éxito depende de un comité que organiza bien y una generación que responde a tiempo.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LÍNEA DE TIEMPO / PROCESO -->
+  <section class="timeline-section" id="proceso">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Cómo hemos trabajado</p>
+        <h2>Línea del tiempo de las decisiones</h2>
+        <p>El comité busca incluir lo más posible a toda la generación. Síguenos en los canales oficiales para participar.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Conformación del Comité</h4>
+          <p>Se consolidó de manera voluntaria a través del grupo de la generación 2022-2027.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Búsqueda de información con banqueteras</h4>
+          <p>Se visitaron y evaluaron MaxiEventos y Promit, considerando precio, calidad, servicio y experiencia.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Organización y estructuración</h4>
+          <p>Se definieron roles (coordinación, finanzas, logística, comunicación, decoración) y se establecieron reglas base de derechos y obligaciones.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Análisis de ofertas y decisión</h4>
+          <p>Tras comparar ventajas y desventajas, el comité recomendó de forma unánime a Promit. La información se compartió con la generación.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Mecanismos de pago y firma</h4>
+          <p>Se construyeron canales de cobro y se firmó el contrato con la banquetera elegida (Casa Productora Chichén Itzá / Promit).</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Seguimiento en la planificación</h4>
+          <p>Continúa la organización del evento: protocolo, ambientación, restricciones alimentarias y reservas. ¡Tú puedes participar!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ INCLUYE / INFO -->
+  <section class="info-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">El evento</p>
+        <h2>Qué incluye la celebración</h2>
+        <p>Ambas banqueteras evaluadas contemplaban un paquete completo. Esto es lo que se acordó en términos generales.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <h3>Alimentos y bebidas</h3>
+          <ul>
+            <li>Banquete formal a tres tiempos</li>
+            <li>Hielo y refrescos/mezcladores ilimitados</li>
+            <li>After party con menú de finalistas</li>
+            <li>Barra libre / coctelería para graduados</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Entretenimiento</h3>
+          <ul>
+            <li>Equipo de audio e iluminación profesional</li>
+            <li>Animación y cabina fotográfica</li>
+            <li>Cabinas de fotos y sets personalizados</li>
+            <li>Botargas y animación personalizada</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Lugar y capacidad</h3>
+          <p>Centro de Convenciones Siglo XXI. Preparado para 700 o más asistentes. Salón pendiente de confirmación final.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Fecha y horario</h3>
+          <p><strong>17 de julio de 2027</strong> a las <strong>21:00 h</strong>. El protocolo de la ceremonia aún se está definiendo con propuestas de la generación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANQUETERA -->
+  <section class="banquetera" id="banquetera">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Transparencia en la elección</p>
+        <h2>Banquetera elegida: Promit</h2>
+        <p>Se evaluaron dos opciones. El comité analizó ventajas y desventajas y recomendó de forma unánime a Promit por ofrecer una experiencia más completa orientada a los graduados.</p>
+      </div>
+      <div class="banq-compare">
+        <div class="banq-card recommended">
+          <h3>Promit</h3>
+          <div class="banq-price">$920 – $950</div>
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Barra libre completa (mixología + cerveza)</li>
+            <li>Entradas ilimitadas durante una hora</li>
+            <li>Paquete de fotos incluido (10 digitales + 1 cuadro)</li>
+            <li>Estaciones de comida incluidas</li>
+            <li>Pantallas, alfombra roja y coctel de bienvenida</li>
+          </ul>
+          <h4>A considerar</h4>
+          <ul>
+            <li>Mínimo de 15 personas para cambio de platillo</li>
+            <li>Estaciones de comida solo para graduados</li>
+          </ul>
+        </div>
+        <div class="banq-card">
+          <h3>Maxieventos</h3>
+          <div class="banq-price">$925 – $955</div>
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Música en vivo de bienvenida</li>
+            <li>Sin mínimo para cambios por alergias</li>
+            <li>Cobertura de roturas de mobiliario</li>
+            <li>Efectos y animación en cabina DJ</li>
+            <li>Menú infantil disponible</li>
+          </ul>
+          <h4>A considerar</h4>
+          <ul>
+            <li>Entradas de cena limitadas</li>
+            <li>Barra libre no incluye cerveza</li>
+            <li>Estaciones sin opción tipo Costco</li>
+          </ul>
+        </div>
+      </div>
+      <div class="banq-note">
+        <strong>Conclusión del Comité:</strong> Promit ofrece mayor valor y una experiencia más completa para los egresados (barra libre integral, entradas ilimitadas, estaciones incluidas y elementos de bienvenida). Maxieventos tiene fortalezas en animación y flexibilidad de menú, pero el equilibrio general favoreció a Promit. Se pueden atender restricciones alimentarias; se recopilarán más adelante.
+      </div>
+    </div>
+  </section>
+
+  <!-- COSTOS -->
+  <section class="costos" id="costos">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Presupuesto claro</p>
+        <h2>Costos, pagos y transparencia</h2>
+        <p>El precio por boleto es de $950 MXN. Así se desglosa y para qué se usa cada peso.</p>
+      </div>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>%</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Servicios de la banquetera (salón, mobiliario, alimentos, bebidas, entretenimiento, after party, personal)</td>
+            <td>90.8%</td>
+            <td>$870.00</td>
+          </tr>
+          <tr>
+            <td>Reserva de contingencia financiera (protege el cumplimiento del contrato ante retrasos, cancelaciones o imprevistos)</td>
+            <td>9.2%</td>
+            <td>$80.00</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total por boleto</td>
+            <td>100%</td>
+            <td>$950.00 MXN</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="cost-explain">
+        <div class="cost-box">
+          <h4>¿Para qué sirve la contingencia?</h4>
+          <p>El contrato exige cubrir el servicio aunque el número final de asistentes sea menor. La reserva ayuda a cumplir pagos a tiempo ante retrasos, cancelaciones o gastos extraordinarios. Si no se usa completa, el remanente se destina a mejoras, premios, obsequios o ambientación en beneficio de la generación. Nunca a ganancia personal del comité.</p>
+        </div>
+        <div class="cost-box">
+          <h4>Rendición de cuentas</h4>
+          <p>Finanzas publica cortes de caja y comprobantes mensuales. Cualquier graduado puede solicitar información. Queda prohibido que miembros del comité obtengan ganancias encubiertas de proveedores. Las cortesías se discuten y distribuyen según la misión del comité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section class="reservas" id="reservas">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Cómo participar</p>
+        <h2>Reserva de boletos</h2>
+        <p>Puedes reservar y pagar en cualquier momento antes de julio 2027. Te recomendamos seguir el plan de pago mensual, pero puedes ajustar montos a tu situación.</p>
+      </div>
+      <div class="reservas-grid">
+        <div class="reservas-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Formulario de reserva</h4>
+              <p>Llena el formulario oficial para registrar tus boletos.<br>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJgmtpsvH_o4YMUCoJt_gmOJhoKcOppjhOcMIFR2DanJ7N-w/viewform?usp=sharing&ouid=102495797850106350987" target="_blank" rel="noopener">Abrir formulario →</a></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Portal del estudiante</h4>
+              <p>Consulta y gestiona tu reserva desde el portal.<br>
+              <a href="https://script.google.com/macros/s/AKfycbzO7nHaFGc12j_zDdV1jCwqbhuVTG3DPNNoP32XlGBkNhXID5Mwlu4pBHTti3BG8r5yOw/exec" target="_blank" rel="noopener">Ir al portal →</a></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Guía de uso</h4>
+              <p>Si tienes dudas sobre cómo usar los enlaces, revisa la guía publicada en Instagram.<br>
+              <a href="https://www.instagram.com/p/DcEe2F1iVEV/?igsh=MTcxanl5bnJ2bTlyOA==" target="_blank" rel="noopener">Ver guía →</a></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h4>Dudas sobre tu reserva</h4>
+              <p>Contacta a Ana Mendoza (WhatsApp 987 871 7902) para seguimiento de pagos o aclaraciones.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reservas-side">
+          <h3>¿Qué pasa si no puedo pagar la mensualidad?</h3>
+          <p>Puedes abonar un importe menor (o mayor) para mantener tu reserva activa. Después de tres meses de atraso se cancela la reserva, respetando los boletos ya pagados. Puedes volver a reservar en cualquier momento sin penalización.</p>
+          <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20ayuda%20con%20mi%20reserva" class="btn btn-whatsapp" target="_blank" rel="noopener">Escribir a Carly</a>
+          <a href="https://wa.me/529878717902?text=Hola%20Ana%2C%20tengo%20dudas%20sobre%20mi%20reserva" class="btn btn-outline" style="border-color:var(--cream);color:var(--cream)" target="_blank" rel="noopener">Escribir a Ana Mendoza</a>
+          <p class="note">Horario de atención del comité: orientativo lunes a viernes 7:00–20:00. Fuera de ese horario solo emergencias reales del evento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES DEL COMITÉ -->
+  <section class="comite-detalle">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Estructura</p>
+        <h2>Quién integra el Comité y qué hace</h2>
+        <p>12 personas de la generación con roles definidos. Trabajamos de forma voluntaria.</p>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card">
+          <h4>Coordinación general</h4>
+          <p class="role-names">Jade Martín · Ana Mendoza (Subcoordinación)</p>
+          <p>Dirigen, representan y median ante institución, proveedores y generación. Lideran reuniones, supervisán plazos y resuelven conflictos internos.</p>
+        </div>
+        <div class="role-card">
+          <h4>Finanzas</h4>
+          <p class="role-names">Soraya Shurair · Aylin Castro · Javier Luna</p>
+          <p>Administración del presupuesto, control de abonos, recibos, plataforma de pagos y reportes mensuales de estados de cuenta.</p>
+        </div>
+        <div class="role-card">
+          <h4>Logística y proveedores</h4>
+          <p class="role-names">Joana Cetina · Irajai Pacheco · Joel Ek · Daniel Mirafuentes</p>
+          <p>Contacto y negociación con proveedores, evaluación de cotizaciones, visitas y revisión de contratos y cláusulas.</p>
+        </div>
+        <div class="role-card">
+          <h4>Relaciones Públicas y Comunicación</h4>
+          <p class="role-names">Carla (Carly) Briceño · apoyos de Ana, Annie y Aylin</p>
+          <p>Grupo oficial de WhatsApp, anuncios, votaciones, resolución de dudas y contenido en redes. Canal directo con la generación.</p>
+        </div>
+        <div class="role-card">
+          <h4>Ambientación y creatividad</h4>
+          <p class="role-names">Joss Manzanero · Annie Ortiz</p>
+          <p>Temática visual, centros de mesa, iluminación, recuerdos, photobooth y mecanismos para integrar ideas de la generación.</p>
+        </div>
+        <div class="role-card">
+          <h4>Firma del contrato</h4>
+          <p class="role-names">Jade Martín · Ana Mendoza · Soraya Shurair · Joana Cetina</p>
+          <p>Responsables de la firma formal del contrato con la banquetera en representación del Comité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Resolvemos dudas</p>
+        <h2>Preguntas frecuentes</h2>
+        <p>Respuestas claras a las inquietudes más comunes. Si no encuentras la tuya, escríbenos.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">¿Cómo se toman las decisiones del comité? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Las decisiones importantes se discuten en reunión del comité buscando consenso. Si no hay acuerdo, se vota (mayoría de los 12). En temas de mayor impacto se consulta a la generación mediante formularios, encuestas u otros mecanismos. Siempre se prioriza el beneficio colectivo y la viabilidad.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Por qué no se consultó a toda la generación antes de decidir la banquetera? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Algunas decisiones operativas se toman en el comité para avanzar con agilidad, siempre buscando el bien común. En los temas de mayor impacto se busca consultar o informar. Si sientes que un tema debió consultarse, agradecemos tu retroalimentación por escrito (correo, portal o WhatsApp) para mejorar los procesos.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Se pueden hacer cambios de menú o atender alergias? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Sí. Se recopilarán restricciones alimentarias (vegetarianas, veganas, alergias, etc.). Cuando el mecanismo esté listo se avisará por los canales oficiales.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Qué pasa si me doy de baja de la graduación? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            No se reembolsa el dinero que ya haya sido comprometido o pagado a los proveedores en forma de anticipos no reembolsables. Los boletos ya cubiertos se respetan según las reglas de morosidad.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Cómo puedo hacer una sugerencia o queja? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Escríbenos a comite2027.psicouady@gmail.com o contacta a Carly (999 386 3421), Ana Mendoza (987 871 7902) o Anahí Ortiz (999 737 5812). Las quejas sobre miembros del comité se presentan por escrito a la Subcoordinación para evaluarse en sesión, con derecho de réplica.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Cuál es el horario de atención del comité? <span>+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Orientativo: lunes a viernes de 7:00 a 20:00. Los miembros no están obligados a responder fuera de ese horario ni en fines de semana, salvo emergencias reales del evento. Se espera respeto mutuo: cero tolerancia a insultos o presiones indebidas.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>¿Tienes dudas o quieres reservar?</h2>
+          <p class="subtitle-script">Estamos para escucharte</p>
+          <p>
+            Escríbenos por WhatsApp, correo o deja un mensaje. Todas las sugerencias se revisan en las reuniones del comité. Para ser añadido al grupo oficial de WhatsApp, contacta a Carly.
+          </p>
+          <div class="contact-channels">
+            <a href="https://wa.me/529993863421" class="channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <strong>Carly Briceño · RP</strong>
+                <span>WhatsApp · +52 999 386 3421</span>
+              </div>
+            </a>
+            <a href="https://wa.me/529878717902" class="channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <strong>Ana Mendoza · Subcoordinación / Reservas</strong>
+                <span>WhatsApp · 987 871 7902</span>
+              </div>
+            </a>
+            <a href="mailto:comite2027.psicouady@gmail.com" class="channel">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong>Correo oficial</strong>
+                <span>comite2027.psicouady@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/gradpsico27" class="channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </div>
+              <div>
+                <strong>Instagram oficial</strong>
+                <span>@gradpsico27</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div id="formContent">
+            <h3>Envíanos un mensaje</h3>
+            <p>Te responderemos lo antes posible por correo o WhatsApp.</p>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%">Enviar mensaje</button>
+            </form>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <h4>¡Mensaje recibido!</h4>
+            <p>Gracias por escribirnos. Te contactaremos pronto. Mientras tanto puedes escribirnos por WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-mark" style="width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;">Ψ</div>
+          <p>Comité de Graduación · Facultad de Psicología UADY · Generación 2022-2027</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/gradpsico27" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/529993863421" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="mailto:comite2027.psicouady@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Secciones</h4>
+          <ul>
+            <li><a href="#comite">El Comité</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#banquetera">Banquetera</a></li>
+            <li><a href="#costos">Costos</a></li>
+            <li><a href="#reservas">Reservas</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contactos directos</h4>
+          <ul>
+            <li><a href="https://wa.me/529993863421">Carly · 999 386 3421</a></li>
+            <li><a href="https://wa.me/529878717902">Ana Mendoza · 987 871 7902</a></li>
+            <li><a href="https://wa.me/529997375812">Anahí Ortiz · 999 737 5812</a></li>
+            <li><a href="mailto:comite2027.psicouady@gmail.com">comite2027.psicouady@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Comité de Graduación Psicología UADY · Generación 2022-2027</p>
+        <p>17 de julio de 2027 · 21:00 h · Centro de Convenciones Siglo XXI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Form
+    const form = document.getElementById('contactForm');
+    const formContent = document.getElementById('formContent');
+    const formSuccess = document.getElementById('formSuccess');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formContent.style.display = 'none';
+      formSuccess.classList.add('show');
+    });
+  </script>
+</body>
+</html>
+```
