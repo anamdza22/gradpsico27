@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,10 +57,9 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .logo { display: flex; align-items: center; gap: 0.75rem; }
-    .logo-mark {
-      width: 42px; height: 42px; background: var(--navy-dark); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--cream); font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem;
+    .logo-img {
+      width: 44px; height: 44px; border-radius: 50%;
+      object-fit: cover; border: 2px solid rgba(17, 34, 80, 0.1);
     }
     .logo-text {
       font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600;
@@ -150,15 +148,23 @@
       margin-bottom: 1.5rem; line-height: 1.2;
     }
     .hero-desc {
-      font-size: 1.05rem; color: var(--blue-medium); max-width: 540px;
-      margin-bottom: 2.25rem; font-weight: 400;
+      font-size: 1.08rem; color: var(--blue-medium); max-width: 540px;
+      margin-bottom: 2.25rem; font-weight: 400; line-height: 1.75;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.75rem; }
     .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 1.75rem; font-size: 0.9rem; color: var(--blue-medium);
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      font-size: 1.15rem; color: var(--navy-dark); font-weight: 500;
     }
-    .hero-meta-item { display: flex; align-items: center; gap: 0.5rem; }
-    .hero-meta-item strong { color: var(--navy-dark); font-weight: 600; }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: rgba(255,255,255,0.55);
+      padding: 0.7rem 1.15rem;
+      border-radius: 12px;
+      border: 1px solid rgba(190, 183, 167, 0.4);
+    }
+    .hero-meta-item strong { color: var(--navy-dark); font-weight: 700; }
+    .hero-meta-item svg { flex-shrink: 0; color: var(--blue-medium); }
     .hero-card {
       background: var(--white); border-radius: 24px; padding: 2rem;
       box-shadow: var(--shadow); border: 1px solid rgba(190, 183, 167, 0.4); position: relative;
@@ -176,7 +182,14 @@
     .hero-card-price span {
       font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--blue-medium);
     }
-    .hero-card-note { font-size: 0.8rem; color: var(--taupe); margin-bottom: 1.5rem; }
+    .hero-card-note { font-size: 0.8rem; color: var(--taupe); margin-bottom: 1.35rem; }
+    .hero-card-cta-note {
+      font-size: 0.88rem; font-weight: 600; color: var(--navy-dark);
+      margin-bottom: 0.65rem; text-align: center;
+    }
+    .hero-card .btn-outline {
+      width: 100%; margin-bottom: 1rem;
+    }
 
     /* SECTIONS */
     section { padding: 5rem 1.5rem; }
@@ -191,44 +204,141 @@
     }
     .section-header p { font-size: 1.05rem; color: var(--blue-medium); }
 
-    /* ABOUT */
+    /* ABOUT / COMITÉ */
     .about { background: var(--white); }
-    .about-grid {
-      display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; align-items: start;
-    }
-    .about-visual { position: relative; }
-    .about-placeholder {
-      aspect-ratio: 4/5; background: linear-gradient(160deg, var(--navy-dark) 0%, var(--blue-medium) 100%);
-      border-radius: 24px; display: flex; flex-direction: column; align-items: center;
-      justify-content: center; color: var(--cream); text-align: center; padding: 2rem;
-      box-shadow: var(--shadow);
-    }
-    .about-placeholder svg { width: 64px; height: 64px; margin-bottom: 1rem; opacity: 0.7; }
-    .about-placeholder span { font-size: 0.9rem; font-weight: 500; opacity: 0.85; }
-    .about-badge {
-      position: absolute; bottom: -1.25rem; right: -1rem; background: var(--cream);
-      color: var(--navy-dark); padding: 1rem 1.35rem; border-radius: 16px;
-      box-shadow: var(--shadow); font-size: 0.85rem; font-weight: 600; max-width: 190px;
-    }
-    .about-badge strong {
-      display: block; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.15rem;
+    .about-content {
+      max-width: 780px;
+      margin: 0 auto 3rem;
+      text-align: center;
     }
     .about-content h2 { font-size: clamp(1.7rem, 3.2vw, 2.25rem); margin-bottom: 0.5rem; }
     .about-content .subtitle-script {
       font-size: 1.7rem; color: var(--blue-medium); margin-bottom: 1.35rem;
     }
-    .about-content p { color: var(--blue-medium); margin-bottom: 1.15rem; font-size: 1rem; }
+    .about-content p { color: var(--blue-medium); margin-bottom: 1.15rem; font-size: 1.05rem; }
     .values-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 2rem;
+      max-width: 700px; margin-left: auto; margin-right: auto;
     }
     .value-card {
-      background: var(--off-white); border-radius: 12px; padding: 1rem 1.1rem;
-      border: 1px solid rgba(190, 183, 167, 0.35);
+      background: var(--off-white); border-radius: 12px; padding: 1.15rem 1.25rem;
+      border: 1px solid rgba(190, 183, 167, 0.35); text-align: left;
     }
     .value-card strong {
-      display: block; font-size: 0.92rem; color: var(--navy-dark); margin-bottom: 0.25rem;
+      display: block; font-size: 0.95rem; color: var(--navy-dark); margin-bottom: 0.3rem;
     }
-    .value-card span { font-size: 0.82rem; color: var(--blue-medium); line-height: 1.5; }
+    .value-card span { font-size: 0.85rem; color: var(--blue-medium); line-height: 1.5; }
+
+    /* Roles */
+    .roles-inside {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(190, 183, 167, 0.4);
+    }
+    .roles-inside h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .roles-inside .subtitle {
+      text-align: center;
+      color: var(--blue-medium);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .roles-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    }
+    .role-card {
+      background: var(--off-white); border-radius: 14px; padding: 1.35rem;
+      border: 1px solid rgba(190, 183, 167, 0.35);
+    }
+    .role-card h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--navy-dark); }
+    .role-card .role-names {
+      font-size: 0.85rem; font-weight: 600; color: var(--blue-medium); margin-bottom: 0.5rem;
+    }
+    .role-card p { font-size: 0.88rem; color: var(--blue-medium); }
+
+    /* Más sobre el comité - Galería */
+    .mas-comite {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(190, 183, 167, 0.4);
+    }
+    .mas-comite h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .mas-comite .subtitle {
+      text-align: center;
+      color: var(--blue-medium);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .photo-item {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: linear-gradient(145deg, var(--navy-dark), var(--blue-medium));
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .photo-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-item .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .photo-item .photo-placeholder svg {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+    }
+    .album-link {
+      display: flex;
+      justify-content: center;
+    }
+    .album-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--navy-dark);
+      border-bottom: 2px solid var(--navy-dark);
+      padding-bottom: 2px;
+    }
+    .album-link a:hover {
+      color: var(--blue-medium);
+      border-color: var(--blue-medium);
+    }
 
     /* TIMELINE */
     .timeline-section { background: var(--off-white); }
@@ -253,7 +363,7 @@
     }
     .timeline-item p { font-size: 0.92rem; color: var(--blue-medium); }
 
-    /* SERVICES / INFO CARDS */
+    /* INFO CARDS */
     .info-section { background: var(--white); }
     .info-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
@@ -284,35 +394,29 @@
 
     /* BANQUETERA */
     .banquetera { background: var(--cream); }
-    .banq-compare {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;
+    .banq-single {
+      max-width: 520px;
+      margin: 0 auto 2rem;
     }
     .banq-card {
       background: var(--white); border-radius: var(--radius); padding: 1.75rem;
-      border: 1px solid rgba(190, 183, 167, 0.4);
-    }
-    .banq-card.recommended {
       border: 2px solid var(--navy-dark); position: relative;
     }
-    .banq-card.recommended::after {
+    .banq-card::after {
       content: 'Recomendada por el Comité'; position: absolute; top: -12px; left: 50%;
       transform: translateX(-50%); background: var(--navy-dark); color: var(--cream);
       font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.9rem; border-radius: 50px;
       white-space: nowrap; letter-spacing: 0.03em;
     }
-    .banq-card h3 { font-size: 1.25rem; margin-bottom: 0.35rem; }
-    .banq-price {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy-dark);
-      margin-bottom: 1rem;
-    }
+    .banq-card h3 { font-size: 1.35rem; margin-bottom: 1rem; text-align: center; }
     .banq-card h4 {
       font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.06em; color: var(--taupe);
-      margin: 1rem 0 0.5rem;
+      margin: 1.25rem 0 0.5rem;
     }
     .banq-card ul li {
-      font-size: 0.9rem; color: var(--blue-medium); padding-left: 1.1rem;
-      position: relative; margin-bottom: 0.3rem;
+      font-size: 0.95rem; color: var(--blue-medium); padding-left: 1.1rem;
+      position: relative; margin-bottom: 0.35rem;
     }
     .banq-card ul li::before {
       content: '✓'; position: absolute; left: 0; color: var(--navy-dark); font-size: 0.8rem;
@@ -381,21 +485,6 @@
     .reservas-side .note {
       font-size: 0.82rem; color: rgba(231, 226, 206, 0.6); margin-top: 1rem;
     }
-
-    /* COMITÉ DETALLE */
-    .comite-detalle { background: var(--white); }
-    .roles-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
-    }
-    .role-card {
-      background: var(--off-white); border-radius: 14px; padding: 1.35rem;
-      border: 1px solid rgba(190, 183, 167, 0.35);
-    }
-    .role-card h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--navy-dark); }
-    .role-card .role-names {
-      font-size: 0.85rem; font-weight: 600; color: var(--blue-medium); margin-bottom: 0.5rem;
-    }
-    .role-card p { font-size: 0.88rem; color: var(--blue-medium); }
 
     /* FAQ */
     .faq { background: var(--cream); }
@@ -480,8 +569,9 @@
       margin-bottom: 2.75rem; padding-bottom: 2.75rem;
       border-bottom: 1px solid rgba(190, 183, 167, 0.2);
     }
-    .footer-brand .logo-mark {
-      background: var(--cream); color: var(--navy-dark); margin-bottom: 1rem;
+    .footer-brand .logo-img {
+      width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+      margin-bottom: 1rem; border: 2px solid rgba(231, 226, 206, 0.3);
     }
     .footer-brand p {
       font-size: 0.9rem; color: rgba(231, 226, 206, 0.7); max-width: 280px;
@@ -508,15 +598,12 @@
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-card { max-width: 420px; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-visual { max-width: 340px; margin: 0 auto; }
-      .about-badge { right: 0; }
       .info-grid { grid-template-columns: 1fr; }
-      .banq-compare { grid-template-columns: 1fr; }
       .cost-explain { grid-template-columns: 1fr; }
       .reservas-grid { grid-template-columns: 1fr; }
       .reservas-side { position: static; }
       .roles-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .values-grid { grid-template-columns: 1fr; }
@@ -539,6 +626,9 @@
       .mobile-menu .btn { margin-top: 0.75rem; }
       section { padding: 3.75rem 1.25rem; }
       .cost-table th, .cost-table td { padding: 0.85rem 0.9rem; font-size: 0.85rem; }
+      .hero-meta { gap: 1rem; }
+      .hero-meta-item { font-size: 1.05rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
       .hero { padding: 6rem 1.1rem 3.25rem; }
@@ -546,6 +636,7 @@
       .hero-actions .btn { width: 100%; }
       .hero-meta { flex-direction: column; gap: 0.7rem; }
       .form-card { padding: 1.4rem; }
+      .photo-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -555,7 +646,7 @@
   <header class="header" id="header">
     <div class="header-inner">
       <a href="#" class="logo">
-        <div class="logo-mark">Ψ</div>
+        <img src="https://lh3.googleusercontent.com/d/1yRN0lMS2UoLUQcIf4dEUqaECET4XOF8K" alt="GradPsico 27" class="logo-img">
         <div class="logo-text">
           GradPsico 27
           <span>UADY · Psicología</span>
@@ -604,23 +695,22 @@
         <h1>Graduación Facultad de Psicología, Generación 2022-2027</h1>
         <p class="subtitle-script">Un espacio oficial para informarte y reservar</p>
         <p class="hero-desc">
-          Somos el Comité de Graduación, integrado de forma voluntaria por 12 compañeros de la generación. Organizamos con transparencia, equidad y cercanía la celebración del 17 de julio de 2027 en el Centro de Convenciones Siglo XXI.
+          Estamos preparando algo muy especial: la celebración que pondrá el broche de oro a esta etapa que tanto nos ha marcado. Una noche que quedará en la memoria de cada uno de nosotrxs, porque esta fiesta es de todxs y para todxs.
         </p>
         <div class="hero-actions">
           <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20información%20sobre%20la%20graduación%20Psicología%202027" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir a Carly
+            Escribir a Carly para dudas o comentarios.
           </a>
-          <a href="#reservas" class="btn btn-outline btn-lg">Cómo reservar</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             <span><strong>17 jul 2027</strong> · 21:00 h</span>
           </div>
           <div class="hero-meta-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Centro de Convenciones Siglo XXI</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span><strong>Centro de Convenciones Siglo XXI</strong></span>
           </div>
         </div>
       </div>
@@ -631,6 +721,10 @@
         <p>Banquete a tres tiempos, barra libre para graduados, after party, entretenimiento, cabina fotográfica y más.</p>
         <div class="hero-card-price">$950 <span>MXN</span></div>
         <p class="hero-card-note">Puedes pagar de forma flexible. Reserva abierta hasta julio 2027. Sin penalización por montos menores.</p>
+        
+        <a href="#reservas" class="btn btn-outline">Cómo reservar</a>
+        
+        <p class="hero-card-cta-note">Para dudas sobre tus reservas</p>
         <a href="https://wa.me/529993863421?text=Hola%20Carly%2C%20quiero%20reservar%20boletos%20para%20la%20graduación" class="btn btn-whatsapp" style="width:100%" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Hablar por WhatsApp
@@ -639,54 +733,136 @@
     </div>
   </section>
 
-  <!-- SOBRE EL COMITÉ -->
+  <!-- EL COMITÉ -->
   <section class="about" id="comite">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-visual">
-          <div class="about-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            <span>[Foto del Comité aquí]</span>
+      <div class="about-content">
+        <p class="eyebrow" style="font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--taupe);margin-bottom:0.5rem">Quiénes somos</p>
+        <h2>Comité de Graduación de la generación</h2>
+        <p class="subtitle-script">Trabajamos por y para todos</p>
+        <p>
+          Nos conformamos de manera voluntaria a través del grupo de la generación. Nuestra misión es planificar, organizar y ejecutar un evento memorable, inclusivo, transparente y honesto, asegurando que cada decisión busque el beneficio colectivo.
+        </p>
+        <p>
+          Nos comprometemos a un trato justo y equitativo que valore tanto el esfuerzo de quienes coordinan como la inversión y la ilusión de quienes asisten. Aspiramos a ser un modelo de organización estudiantil reconocido por su integridad, empatía y eficiencia.
+        </p>
+        <div class="values-grid">
+          <div class="value-card">
+            <strong>Equidad</strong>
+            <span>Las mismas reglas y beneficios para comité, amigos y resto de la generación.</span>
           </div>
-          <div class="about-badge">
-            <strong>12</strong>
-            integrantes voluntarios de la generación
+          <div class="value-card">
+            <strong>Transparencia</strong>
+            <span>Cuentas abiertas, presupuestos auditable y cortes de caja mensuales.</span>
+          </div>
+          <div class="value-card">
+            <strong>Empatía</strong>
+            <span>Entendemos limitaciones de pago y también las cargas del comité.</span>
+          </div>
+          <div class="value-card">
+            <strong>Corresponsabilidad</strong>
+            <span>El éxito depende de un comité que organiza bien y una generación que responde a tiempo.</span>
           </div>
         </div>
-        <div class="about-content">
-          <p class="eyebrow" style="font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--taupe);margin-bottom:0.5rem">Quiénes somos</p>
-          <h2>Comité de Graduación de la generación</h2>
-          <p class="subtitle-script">Trabajamos por y para todos</p>
-          <p>
-            Nos conformamos de manera voluntaria a través del grupo de la generación. Nuestra misión es planificar, organizar y ejecutar un evento memorable, inclusivo, transparente y honesto, asegurando que cada decisión busque el beneficio colectivo.
-          </p>
-          <p>
-            Nos comprometemos a un trato justo y equitativo que valore tanto el esfuerzo de quienes coordinan como la inversión y la ilusión de quienes asisten. Aspiramos a ser un modelo de organización estudiantil reconocido por su integridad, empatía y eficiencia.
-          </p>
-          <div class="values-grid">
-            <div class="value-card">
-              <strong>Equidad</strong>
-              <span>Las mismas reglas y beneficios para comité, amigos y resto de la generación.</span>
-            </div>
-            <div class="value-card">
-              <strong>Transparencia</strong>
-              <span>Cuentas abiertas, presupuestos auditable y cortes de caja mensuales.</span>
-            </div>
-            <div class="value-card">
-              <strong>Empatía</strong>
-              <span>Entendemos limitaciones de pago y también las cargas del comité.</span>
-            </div>
-            <div class="value-card">
-              <strong>Corresponsabilidad</strong>
-              <span>El éxito depende de un comité que organiza bien y una generación que responde a tiempo.</span>
+      </div>
+
+      <!-- Estructura del Comité -->
+      <div class="roles-inside">
+        <h3>Quién integra el Comité y qué hace</h3>
+        <p class="subtitle">12 personas de la generación con roles definidos. Trabajamos de forma voluntaria.</p>
+        <div class="roles-grid">
+          <div class="role-card">
+            <h4>Coordinación general</h4>
+            <p class="role-names">Jade Martín · Ana Mendoza (Subcoordinación)</p>
+            <p>Dirigen, representan y median ante institución, proveedores y generación. Lideran reuniones, supervisán plazos y resuelven conflictos internos.</p>
+          </div>
+          <div class="role-card">
+            <h4>Finanzas</h4>
+            <p class="role-names">Soraya Shurair · Aylin Castro · Javier Luna</p>
+            <p>Administración del presupuesto, control de abonos, recibos, plataforma de pagos y reportes mensuales de estados de cuenta.</p>
+          </div>
+          <div class="role-card">
+            <h4>Logística y proveedores</h4>
+            <p class="role-names">Joana Cetina · Irajai Pacheco · Joel Ek · Daniel Mirafuentes</p>
+            <p>Contacto y negociación con proveedores, evaluación de cotizaciones, visitas y revisión de contratos y cláusulas.</p>
+          </div>
+          <div class="role-card">
+            <h4>Relaciones Públicas y Comunicación</h4>
+            <p class="role-names">Carla (Carly) Briceño · apoyos de Ana, Annie y Aylin</p>
+            <p>Grupo oficial de WhatsApp, anuncios, votaciones, resolución de dudas y contenido en redes. Canal directo con la generación.</p>
+          </div>
+          <div class="role-card">
+            <h4>Ambientación y creatividad</h4>
+            <p class="role-names">Joss Manzanero · Annie Ortiz</p>
+            <p>Temática visual, centros de mesa, iluminación, recuerdos, photobooth y mecanismos para integrar ideas de la generación.</p>
+          </div>
+          <div class="role-card">
+            <h4>Firma del contrato</h4>
+            <p class="role-names">Jade Martín · Ana Mendoza · Soraya Shurair · Joana Cetina</p>
+            <p>Responsables de la firma formal del contrato con la banquetera en representación del Comité.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Más sobre el comité -->
+      <div class="mas-comite">
+        <h3>Más sobre el comité</h3>
+        <p class="subtitle">Momentos del equipo que está organizando esta celebración con mucho cariño.</p>
+        
+        <div class="photo-grid">
+          <!-- 
+            INSTRUCCIONES: Abre cada foto del Drive, haz clic derecho → "Obtener enlace" 
+            o usa el formato: https://lh3.googleusercontent.com/d/FILE_ID
+            y reemplaza los src de abajo.
+          -->
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 1
             </div>
           </div>
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 2
+            </div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 3
+            </div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 4
+            </div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 5
+            </div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              Foto 6
+            </div>
+          </div>
+        </div>
+
+        <div class="album-link">
+          <a href="https://drive.google.com/drive/folders/1FrnqQ-uadKjQM-au5gotufcN_fUjRqyS?usp=sharing" target="_blank" rel="noopener">
+            Ver álbum completo en Google Drive →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LÍNEA DE TIEMPO / PROCESO -->
+  <!-- PROCESO -->
   <section class="timeline-section" id="proceso">
     <div class="container">
       <div class="section-header">
@@ -701,7 +877,7 @@
         </div>
         <div class="timeline-item">
           <h4>Búsqueda de información con banqueteras</h4>
-          <p>Se visitaron y evaluaron MaxiEventos y Promit, considerando precio, calidad, servicio y experiencia.</p>
+          <p>Se visitaron y evaluaron distintas opciones, considerando precio, calidad, servicio y experiencia.</p>
         </div>
         <div class="timeline-item">
           <h4>Organización y estructuración</h4>
@@ -723,13 +899,13 @@
     </div>
   </section>
 
-  <!-- QUÉ INCLUYE / INFO -->
+  <!-- QUÉ INCLUYE -->
   <section class="info-section">
     <div class="container">
       <div class="section-header">
         <p class="eyebrow">El evento</p>
         <h2>Qué incluye la celebración</h2>
-        <p>Ambas banqueteras evaluadas contemplaban un paquete completo. Esto es lo que se acordó en términos generales.</p>
+        <p>El paquete contemplado es completo. Esto es lo que se acordó en términos generales.</p>
       </div>
       <div class="info-grid">
         <div class="info-card">
@@ -780,12 +956,12 @@
       <div class="section-header">
         <p class="eyebrow">Transparencia en la elección</p>
         <h2>Banquetera elegida: Promit</h2>
-        <p>Se evaluaron dos opciones. El comité analizó ventajas y desventajas y recomendó de forma unánime a Promit por ofrecer una experiencia más completa orientada a los graduados.</p>
+        <p>El comité analizó las opciones disponibles y recomendó de forma unánime a Promit por ofrecer una experiencia más completa orientada a los graduados.</p>
       </div>
-      <div class="banq-compare">
-        <div class="banq-card recommended">
+      
+      <div class="banq-single">
+        <div class="banq-card">
           <h3>Promit</h3>
-          <div class="banq-price">$920 – $950</div>
           <h4>Fortalezas</h4>
           <ul>
             <li>Barra libre completa (mixología + cerveza)</li>
@@ -800,27 +976,10 @@
             <li>Estaciones de comida solo para graduados</li>
           </ul>
         </div>
-        <div class="banq-card">
-          <h3>Maxieventos</h3>
-          <div class="banq-price">$925 – $955</div>
-          <h4>Fortalezas</h4>
-          <ul>
-            <li>Música en vivo de bienvenida</li>
-            <li>Sin mínimo para cambios por alergias</li>
-            <li>Cobertura de roturas de mobiliario</li>
-            <li>Efectos y animación en cabina DJ</li>
-            <li>Menú infantil disponible</li>
-          </ul>
-          <h4>A considerar</h4>
-          <ul>
-            <li>Entradas de cena limitadas</li>
-            <li>Barra libre no incluye cerveza</li>
-            <li>Estaciones sin opción tipo Costco</li>
-          </ul>
-        </div>
       </div>
+
       <div class="banq-note">
-        <strong>Conclusión del Comité:</strong> Promit ofrece mayor valor y una experiencia más completa para los egresados (barra libre integral, entradas ilimitadas, estaciones incluidas y elementos de bienvenida). Maxieventos tiene fortalezas en animación y flexibilidad de menú, pero el equilibrio general favoreció a Promit. Se pueden atender restricciones alimentarias; se recopilarán más adelante.
+        <strong>Conclusión del Comité:</strong> Promit ofrece mayor valor y una experiencia más completa para los egresados (barra libre integral, entradas ilimitadas, estaciones incluidas y elementos de bienvenida). Se pueden atender restricciones alimentarias; se recopilarán más adelante.
       </div>
     </div>
   </section>
@@ -831,7 +990,6 @@
       <div class="section-header">
         <p class="eyebrow">Presupuesto claro</p>
         <h2>Costos, pagos y transparencia</h2>
-        <p>El precio por boleto es de $950 MXN. Así se desglosa y para qué se usa cada peso.</p>
       </div>
       <table class="cost-table">
         <thead>
@@ -844,12 +1002,12 @@
         <tbody>
           <tr>
             <td>Servicios de la banquetera (salón, mobiliario, alimentos, bebidas, entretenimiento, after party, personal)</td>
-            <td>90.8%</td>
+            <td>91.58%</td>
             <td>$870.00</td>
           </tr>
           <tr>
             <td>Reserva de contingencia financiera (protege el cumplimiento del contrato ante retrasos, cancelaciones o imprevistos)</td>
-            <td>9.2%</td>
+            <td>8.42%</td>
             <td>$80.00</td>
           </tr>
           <tr class="total-row">
@@ -925,49 +1083,6 @@
     </div>
   </section>
 
-  <!-- ROLES DEL COMITÉ -->
-  <section class="comite-detalle">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Estructura</p>
-        <h2>Quién integra el Comité y qué hace</h2>
-        <p>12 personas de la generación con roles definidos. Trabajamos de forma voluntaria.</p>
-      </div>
-      <div class="roles-grid">
-        <div class="role-card">
-          <h4>Coordinación general</h4>
-          <p class="role-names">Jade Martín · Ana Mendoza (Subcoordinación)</p>
-          <p>Dirigen, representan y median ante institución, proveedores y generación. Lideran reuniones, supervisán plazos y resuelven conflictos internos.</p>
-        </div>
-        <div class="role-card">
-          <h4>Finanzas</h4>
-          <p class="role-names">Soraya Shurair · Aylin Castro · Javier Luna</p>
-          <p>Administración del presupuesto, control de abonos, recibos, plataforma de pagos y reportes mensuales de estados de cuenta.</p>
-        </div>
-        <div class="role-card">
-          <h4>Logística y proveedores</h4>
-          <p class="role-names">Joana Cetina · Irajai Pacheco · Joel Ek · Daniel Mirafuentes</p>
-          <p>Contacto y negociación con proveedores, evaluación de cotizaciones, visitas y revisión de contratos y cláusulas.</p>
-        </div>
-        <div class="role-card">
-          <h4>Relaciones Públicas y Comunicación</h4>
-          <p class="role-names">Carla (Carly) Briceño · apoyos de Ana, Annie y Aylin</p>
-          <p>Grupo oficial de WhatsApp, anuncios, votaciones, resolución de dudas y contenido en redes. Canal directo con la generación.</p>
-        </div>
-        <div class="role-card">
-          <h4>Ambientación y creatividad</h4>
-          <p class="role-names">Joss Manzanero · Annie Ortiz</p>
-          <p>Temática visual, centros de mesa, iluminación, recuerdos, photobooth y mecanismos para integrar ideas de la generación.</p>
-        </div>
-        <div class="role-card">
-          <h4>Firma del contrato</h4>
-          <p class="role-names">Jade Martín · Ana Mendoza · Soraya Shurair · Joana Cetina</p>
-          <p>Responsables de la firma formal del contrato con la banquetera en representación del Comité.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="container">
@@ -1004,13 +1119,15 @@
         <div class="faq-item">
           <button class="faq-q">¿Cómo puedo hacer una sugerencia o queja? <span>+</span></button>
           <div class="faq-a"><div class="faq-a-inner">
-            Escríbenos a comite2027.psicouady@gmail.com o contacta a Carly (999 386 3421), Ana Mendoza (987 871 7902) o Anahí Ortiz (999 737 5812). Las quejas sobre miembros del comité se presentan por escrito a la Subcoordinación para evaluarse en sesión, con derecho de réplica.
+            Escríbenos a comite2027.psicouady@gmail.com o contacta a Carly (999 386 3421), Ana Mendoza (987 871 7902) o Anahí Ortiz (999 737 5812).
           </div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q">¿Cuál es el horario de atención del comité? <span>+</span></button>
           <div class="faq-a"><div class="faq-a-inner">
-            Orientativo: lunes a viernes de 7:00 a 20:00. Los miembros no están obligados a responder fuera de ese horario ni en fines de semana, salvo emergencias reales del evento. Se espera respeto mutuo: cero tolerancia a insultos o presiones indebidas.
+            Horario orientativo: de lunes a viernes, de 7:00 a 20:00.<br><br>
+            Fuera de ese horario y durante los fines de semana, no hay obligación de responder, salvo que surja una emergencia real del evento.<br><br>
+            Cuidemos la forma en que nos comunicamos: aquí no tienen cabida los insultos ni las presiones indebidas. El respeto mutuo es la base de todo.
           </div></div>
         </div>
       </div>
@@ -1102,7 +1219,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="logo-mark" style="width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;">Ψ</div>
+          <img src="https://lh3.googleusercontent.com/d/1yRN0lMS2UoLUQcIf4dEUqaECET4XOF8K" alt="GradPsico 27" class="logo-img">
           <p>Comité de Graduación · Facultad de Psicología UADY · Generación 2022-2027</p>
           <div class="social-links">
             <a href="https://www.instagram.com/gradpsico27" target="_blank" rel="noopener" aria-label="Instagram">
@@ -1190,4 +1307,3 @@
   </script>
 </body>
 </html>
-```
